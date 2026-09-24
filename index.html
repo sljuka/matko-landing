@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Matko — local-first course sharing</title>
+<meta name="description" content="Matko is a local-first course authoring and sharing app. Courses live on your device and move peer-to-peer or on paper, without a cloud account or a central hosting service." />
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <span class="brand">Matko</span>
+      <nav class="nav-links">
+        <a href="#plan">Plan</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#courses">Courses</a>
+        <a href="https://github.com/sljuka/course-boy" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Courses that belong to the people who make and take them.</h1>
+        <p class="lede">
+          Matko is a local-first course authoring and sharing app, built for freedom,
+          privacy, and learning together. No cloud account. No central hosting service.
+          Course files live on your device, and teachers share them directly with
+          students &mdash; over a peer-to-peer network, or on paper.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://github.com/sljuka/course-boy" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="btn btn-ghost" href="#plan">See the plan</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan" class="section">
+      <div class="wrap">
+        <h2>The plan</h2>
+        <p>
+          Matko is planned for desktop and native mobile &mdash; not the browser. Its
+          peer-to-peer networking runs in a <a href="https://github.com/holepunchto/bare" target="_blank" rel="noopener">Bare</a>
+          runtime, which browsers don't support.
+        </p>
+        <p>
+          Course content is made from portable files: localized Markdown for written
+          material, and JSON for structured course data. These files describe a course's
+          sections, lessons, and tests &mdash; readable, ordinary formats that are easy to
+          inspect, preserve, and move between devices.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>Print</h3>
+            <p>A player and print layout designed to make paper a first-class way to learn &mdash; no device or network required to take a course.</p>
+          </div>
+          <div class="card">
+            <h3>Peer to peer</h3>
+            <p>A teacher shares a course QR code in class or online. Students scan it, download the course directly from peers, and take it in Matko.</p>
+          </div>
+        </div>
+        <p>
+          Peer-to-peer sharing is built around Bare workers and holepunching. When a
+          student imports a course, their device can keep sharing its files with other
+          peers while Matko is running &mdash; the network is powered by the people using
+          it, not a central host. Optional always-on seedboxes can help a new course get
+          started, without being a required central service.
+        </p>
+      </div>
+    </section>
+
+    <section id="privacy" class="section alt">
+      <div class="wrap">
+        <h2>Privacy, security, and identity</h2>
+        <p>
+          Course work stays local, with no cloud account required. Students can use the
+          app without ever setting up a keypair. A teacher only needs a persistent
+          sharing identity when they choose to publish a course over the peer-to-peer
+          network &mdash; not to write or print one.
+        </p>
+        <p>
+          Peer-to-peer work runs in a separate native worker, and sharing is always an
+          explicit choice. A keypair gives a teacher a persistent sharing identity, so it
+          should be protected &mdash; it can't simply be replaced without changing that
+          identity. Matko is an evolving project; these design goals aren't a claim that
+          every part of the app or network has had an independent security audit.
+        </p>
+      </div>
+    </section>
+
+    <section id="courses" class="section">
+      <div class="wrap">
+        <h2>Courses</h2>
+        <p>
+          A course is organized into sections, and each section holds lessons and tests.
+          A lesson is a document a teacher writes for students to read; a test is a set
+          of exercises a student answers and gets graded on. A lesson can also carry its
+          own attached test, or embed an exercise directly inline in the document.
+        </p>
+        <p>
+          Lessons are written in a block-based editor &mdash; headings, formatted text,
+          images, video, and audio all live in the same document &mdash; and the same
+          document is shown to students in a read-only view, so a lesson looks and
+          behaves the same whether you're writing it or taking it.
+        </p>
+        <div class="grid grid-3">
+          <div class="card"><h3>Numeric template</h3><p>A story with variables and a formula.</p></div>
+          <div class="card"><h3>Multiple choice</h3><p>One, several, or no correct options.</p></div>
+          <div class="card"><h3>Word types</h3><p>Tag highlighted words by grammatical type.</p></div>
+          <div class="card"><h3>Missing words</h3><p>Fill in the blank in a passage.</p></div>
+          <div class="card"><h3>Region picker</h3><p>Click the correct shapes on a diagram.</p></div>
+          <div class="card"><h3>Region marker</h3><p>Mark regions on an uploaded or preset diagram.</p></div>
+          <div class="card"><h3>Region label</h3><p>Type the name for each numbered region.</p></div>
+        </div>
+        <p class="note">
+          Exercise types &mdash; and potentially other parts of the app &mdash; are
+          planned to be extendable through third-party plugins, similar to how editors
+          like VS Code support extensions. Not built yet; it's part of the direction the
+          app is heading.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>Matko is licensed under <a href="https://github.com/sljuka/course-boy/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0-or-later</a>.</span>
+      <a href="https://github.com/sljuka/course-boy" target="_blank" rel="noopener">github.com/sljuka/course-boy</a>
+    </div>
+  </footer>
+</body>
+</html>
