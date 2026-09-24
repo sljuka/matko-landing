@@ -3,19 +3,190 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Matko — local-first course sharing</title>
-<meta name="description" content="Matko is a local-first course authoring and sharing app. Courses live on your device and move peer-to-peer or on paper, without a cloud account or a central hosting service." />
+<title>Course boy — local-first course sharing</title>
+<meta name="description" content="Course boy is a local-first course authoring and sharing app. Courses live on your device and move peer-to-peer or on paper, without a cloud account or a central hosting service." />
 <link rel="icon" href="data:," />
-<link rel="stylesheet" href="styles.css" />
+<style>
+:root {
+  --bg: #0b0f14;
+  --bg-alt: #10161d;
+  --card: #141b23;
+  --border: #232d38;
+  --text: #e7edf3;
+  --text-dim: #9fb0c0;
+  --accent: #f2a900;
+  --accent-dim: #b98200;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11, 15, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--text-dim); font-size: 0.95rem; }
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+.hero {
+  padding: 96px 0 72px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 24px;
+  line-height: 1.25;
+}
+
+.lede {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin: 0 auto 36px;
+}
+
+.cta-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn:hover { text-decoration: none; }
+
+.btn-primary {
+  background: var(--accent);
+  color: #1a1200;
+}
+.btn-primary:hover { background: var(--accent-dim); }
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover { border-color: var(--accent); }
+
+.section {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section.alt { background: var(--bg-alt); }
+
+.section h2 {
+  font-size: 1.6rem;
+  margin: 0 0 20px;
+}
+
+.section p {
+  color: var(--text-dim);
+  max-width: 720px;
+}
+
+.section .note {
+  margin-top: 28px;
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  max-width: none;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0 40px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .grid, .grid-3 { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+}
+</style>
 </head>
 <body>
   <header class="nav">
     <div class="wrap nav-inner">
-      <span class="brand">Matko</span>
+      <span class="brand">Course boy</span>
       <nav class="nav-links">
-        <a href="#plan">Plan</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#courses">Courses</a>
         <a href="https://github.com/sljuka/course-boy" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </div>
@@ -26,7 +197,7 @@
       <div class="wrap">
         <h1>Courses that belong to the people who make and take them.</h1>
         <p class="lede">
-          Matko is a local-first course authoring and sharing app, built for freedom,
+          Course boy is a local-first course authoring and sharing app, built for freedom,
           privacy, and learning together. No cloud account. No central hosting service.
           Course files live on your device, and teachers share them directly with
           students &mdash; over a peer-to-peer network, or on paper.
@@ -42,7 +213,7 @@
       <div class="wrap">
         <h2>The plan</h2>
         <p>
-          Matko is planned for desktop and native mobile &mdash; not the browser. Its
+          Course boy is planned for desktop and native mobile &mdash; not the browser. Its
           peer-to-peer networking runs in a <a href="https://github.com/holepunchto/bare" target="_blank" rel="noopener">Bare</a>
           runtime, which browsers don't support.
         </p>
@@ -59,15 +230,15 @@
           </div>
           <div class="card">
             <h3>Peer to peer</h3>
-            <p>A teacher shares a course QR code in class or online. Students scan it, download the course directly from peers, and take it in Matko.</p>
+            <p>A teacher shares a course QR code in class or online. Students scan it, download the course directly from peers, and take it in the app.</p>
           </div>
         </div>
         <p>
           Peer-to-peer sharing is built around Bare workers and holepunching. When a
           student imports a course, their device can keep sharing its files with other
-          peers while Matko is running &mdash; the network is powered by the people using
-          it, not a central host. Optional always-on seedboxes can help a new course get
-          started, without being a required central service.
+          peers while Course boy is running &mdash; the network is powered by the people
+          using it, not a central host. Optional always-on seedboxes can help a new course
+          get started, without being a required central service.
         </p>
       </div>
     </section>
@@ -85,8 +256,8 @@
           Peer-to-peer work runs in a separate native worker, and sharing is always an
           explicit choice. A keypair gives a teacher a persistent sharing identity, so it
           should be protected &mdash; it can't simply be replaced without changing that
-          identity. Matko is an evolving project; these design goals aren't a claim that
-          every part of the app or network has had an independent security audit.
+          identity. Course boy is an evolving project; these design goals aren't a claim
+          that every part of the app or network has had an independent security audit.
         </p>
       </div>
     </section>
@@ -127,7 +298,7 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <span>Matko is licensed under <a href="https://github.com/sljuka/course-boy/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0-or-later</a>.</span>
+      <span>Course boy is licensed under <a href="https://github.com/sljuka/course-boy/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0-or-later</a>.</span>
       <a href="https://github.com/sljuka/course-boy" target="_blank" rel="noopener">github.com/sljuka/course-boy</a>
     </div>
   </footer>
