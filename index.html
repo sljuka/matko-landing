@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Course boy — local-first course sharing</title>
-<meta name="description" content="Course boy is a local-first course authoring and sharing app. Courses live on your device and move peer-to-peer or on paper, without a cloud account or a central hosting service." />
+<meta name="description" content="Course boy is a local-first course authoring and sharing app. Courses live on your device, move peer-to-peer or on paper, version like real work, and can be owned by more than one key — without a cloud account or a central hosting service." />
 <link rel="icon" href="data:," />
 <style>
 :root {
@@ -121,8 +121,20 @@ a:hover { text-decoration: underline; }
 
 .section h2 {
   font-size: 1.6rem;
-  margin: 0 0 20px;
+  margin: 0 0 8px;
 }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin: 0 0 10px;
+}
+
+.eyebrow.roadmap { color: var(--text-dim); }
 
 .section p {
   color: var(--text-dim);
@@ -142,6 +154,7 @@ a:hover { text-decoration: underline; }
 }
 
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
 
 .card {
   background: var(--card);
@@ -162,6 +175,14 @@ a:hover { text-decoration: underline; }
   max-width: none;
 }
 
+.card .step {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-dim);
+  margin-bottom: 6px;
+}
+
 .footer {
   border-top: 1px solid var(--border);
   padding: 28px 0 40px;
@@ -177,7 +198,7 @@ a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 640px) {
-  .grid, .grid-3 { grid-template-columns: 1fr; }
+  .grid, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; }
 }
 </style>
@@ -199,8 +220,8 @@ a:hover { text-decoration: underline; }
         <p class="lede">
           Course boy is a local-first course authoring and sharing app, built for freedom,
           privacy, and learning together. No cloud account. No central hosting service.
-          Course files live on your device, and teachers share them directly with
-          students &mdash; over a peer-to-peer network, or on paper.
+          Course files live on your device, versioned like real work, and teachers share
+          them directly with students &mdash; over a peer-to-peer network, or on paper.
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://github.com/sljuka/course-boy" target="_blank" rel="noopener">View on GitHub</a>
@@ -223,54 +244,31 @@ a:hover { text-decoration: underline; }
           sections, lessons, and tests &mdash; readable, ordinary formats that are easy to
           inspect, preserve, and move between devices.
         </p>
-        <div class="grid">
-          <div class="card">
-            <h3>Print</h3>
-            <p>A player and print layout designed to make paper a first-class way to learn &mdash; no device or network required to take a course.</p>
-          </div>
-          <div class="card">
-            <h3>Peer to peer</h3>
-            <p>A teacher shares a course QR code in class or online. Students scan it, download the course directly from peers, and take it in the app.</p>
-          </div>
-        </div>
-        <p>
-          Peer-to-peer sharing is built around Bare workers and holepunching. When a
-          student imports a course, their device can keep sharing its files with other
-          peers while Course boy is running &mdash; the network is powered by the people
-          using it, not a central host. Optional always-on seedboxes can help a new course
-          get started, without being a required central service.
-        </p>
       </div>
     </section>
 
-    <section id="privacy" class="section alt">
+    <section id="structure" class="section alt">
       <div class="wrap">
-        <h2>Privacy, security, and identity</h2>
-        <p>
-          Course work stays local, with no cloud account required. Students can use the
-          app without ever setting up a keypair. A teacher only needs a persistent
-          sharing identity when they choose to publish a course over the peer-to-peer
-          network &mdash; not to write or print one.
-        </p>
-        <p>
-          Peer-to-peer work runs in a separate native worker, and sharing is always an
-          explicit choice. A keypair gives a teacher a persistent sharing identity, so it
-          should be protected &mdash; it can't simply be replaced without changing that
-          identity. Course boy is an evolving project; these design goals aren't a claim
-          that every part of the app or network has had an independent security audit.
-        </p>
-      </div>
-    </section>
-
-    <section id="courses" class="section">
-      <div class="wrap">
-        <h2>Courses</h2>
+        <span class="eyebrow">Built</span>
+        <h2>Open course structure</h2>
         <p>
           A course is organized into sections, and each section holds lessons and tests.
           A lesson is a document a teacher writes for students to read; a test is a set
           of exercises a student answers and gets graded on. A lesson can also carry its
           own attached test, or embed an exercise directly inline in the document.
         </p>
+        <p>
+          Nothing about the format is proprietary. Because the package is just files on
+          disk, a course survives the app that made it, and it's the same unit the
+          peer-to-peer and print paths both work from.
+        </p>
+      </div>
+    </section>
+
+    <section id="creation" class="section">
+      <div class="wrap">
+        <span class="eyebrow">Built</span>
+        <h2>Creation experience</h2>
         <p>
           Lessons are written in a block-based editor &mdash; headings, formatted text,
           images, video, and audio all live in the same document &mdash; and the same
@@ -291,6 +289,116 @@ a:hover { text-decoration: underline; }
           planned to be extendable through third-party plugins, similar to how editors
           like VS Code support extensions. Not built yet; it's part of the direction the
           app is heading.
+        </p>
+      </div>
+    </section>
+
+    <section id="print" class="section alt">
+      <div class="wrap">
+        <span class="eyebrow">Built</span>
+        <h2>Print-friendly</h2>
+        <p>
+          The same lesson and test that render on screen also have a print layout, so
+          paper is a first-class way to take a course &mdash; not an afterthought. No
+          device and no network are required to use a printed course; a teacher can
+          author on Course boy and hand out paper without either side needing the app
+          again.
+        </p>
+      </div>
+    </section>
+
+    <section id="sharing" class="section">
+      <div class="wrap">
+        <span class="eyebrow">Built</span>
+        <h2>Peer-to-peer sharing</h2>
+        <p>
+          A teacher shares a course from the course's own page &mdash; picking which
+          published version to share &mdash; and a student imports it from My Courses.
+          Under the hood, a course is mirrored into a Hyperdrive and replicated over
+          Hyperswarm; importing discovers the real course from a peer and keeps seeding
+          it for as long as Course boy is running. There's no central host required to
+          keep a course available &mdash; the network is powered by the people using it.
+        </p>
+        <p>
+          A course can also be gated to a set of vetted peers, so only people a teacher
+          has explicitly invited can import it. That path exists at the networking layer
+          today; the everyday UI for creating and redeeming invites is a fast follow.
+        </p>
+      </div>
+    </section>
+
+    <section id="versioning" class="section alt">
+      <div class="wrap">
+        <span class="eyebrow">Built</span>
+        <h2>Version control</h2>
+        <p>
+          A course is edited as a draft, and a teacher explicitly cuts a version when
+          it's ready to go out. Published versions stay around: a teacher can publish an
+          older version again, or revert a draft back to one, without losing the history
+          in between. Sharing always points at a specific version, not a moving draft.
+        </p>
+        <div class="grid grid-4">
+          <div class="card"><span class="step">1</span><h3>Draft</h3><p>Edit sections, lessons, and tests freely.</p></div>
+          <div class="card"><span class="step">2</span><h3>Cut a version</h3><p>Snapshot the draft as something shareable.</p></div>
+          <div class="card"><span class="step">3</span><h3>Publish</h3><p>Choose which version students see.</p></div>
+          <div class="card"><span class="step">4</span><h3>Revert</h3><p>Bring an older version back into the draft.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ownership" class="section">
+      <div class="wrap">
+        <span class="eyebrow roadmap">Roadmap</span>
+        <h2>Ownership &amp; control</h2>
+        <p>
+          A course's publishing key doesn't have to belong to one person. The plan is
+          m-of-n multisig control over a course's identity, so an individual teacher can
+          own a course outright, or a school can require several staff members to agree
+          before a new version goes out &mdash; without handing control to a platform
+          that could take the course down or lock an owner out of it.
+        </p>
+        <p class="note">
+          Not built yet. Today, a course's sharing identity is a single keypair derived
+          per-course from a teacher's device; multisig control is the direction this is
+          heading, not a shipped feature.
+        </p>
+      </div>
+    </section>
+
+    <section id="devices" class="section alt">
+      <div class="wrap">
+        <h2>Mobile &amp; desktop</h2>
+        <p>
+          <span class="eyebrow" style="display:inline">Built</span> &mdash; Course boy runs
+          today as a desktop app (Electron), with the full authoring and peer-to-peer
+          experience available.
+        </p>
+        <p>
+          <span class="eyebrow roadmap" style="display:inline">Roadmap</span> &mdash; native
+          mobile is planned so a student can take a course, and a teacher can share one,
+          without a laptop. It isn't built yet, and because peer-to-peer sharing depends
+          on a native Bare runtime, it will need a real mobile app rather than a mobile
+          browser tab.
+        </p>
+      </div>
+    </section>
+
+    <section id="privacy" class="section">
+      <div class="wrap">
+        <span class="eyebrow">Built</span>
+        <h2>Privacy, security, and identity</h2>
+        <p>
+          Course work stays local, with no cloud account required. Students can use the
+          app without ever setting up a keypair. A teacher only needs a persistent
+          sharing identity when they choose to publish a course over the peer-to-peer
+          network &mdash; not to write or print one.
+        </p>
+        <p>
+          Peer-to-peer work runs in a separate native worker, and sharing is always an
+          explicit choice. A keypair gives a teacher a persistent sharing identity, so it
+          should be protected &mdash; it can't simply be replaced without changing that
+          identity. Course boy is an evolving project; these design goals aren't a claim
+          that every part of the app or network has had an independent security audit.
         </p>
       </div>
     </section>
