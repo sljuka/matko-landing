@@ -232,17 +232,15 @@ a:hover { text-decoration: underline; }
 
     <section id="plan" class="section">
       <div class="wrap">
-        <h2>The plan</h2>
-        <p>
-          Course boy is planned for desktop and native mobile &mdash; not the browser. Its
-          peer-to-peer networking runs in a <a href="https://github.com/holepunchto/bare" target="_blank" rel="noopener">Bare</a>
-          runtime, which browsers don't support.
-        </p>
+        <h2>Local first</h2>
         <p>
           Course content is made from portable files: localized Markdown for written
           material, and JSON for structured course data. These files describe a course's
           sections, lessons, and tests &mdash; readable, ordinary formats that are easy to
           inspect, preserve, and move between devices.
+        </p>
+        <p>
+          Course boy is a desktop app and mobile app is soon to come.
         </p>
       </div>
     </section>
@@ -250,12 +248,11 @@ a:hover { text-decoration: underline; }
     <section id="structure" class="section alt">
       <div class="wrap">
         <span class="eyebrow">Built</span>
-        <h2>Open course structure</h2>
+        <h2>Open course standard</h2>
         <p>
           A course is organized into sections, and each section holds lessons and tests.
-          A lesson is a document a teacher writes for students to read; a test is a set
-          of exercises a student answers and gets graded on. A lesson can also carry its
-          own attached test, or embed an exercise directly inline in the document.
+          A lesson is a document a teacher or group of teachers writes for students to use; a test is a set
+          of exercises a student answers and gets graded on.
         </p>
         <p>
           Nothing about the format is proprietary. Because the package is just files on
@@ -307,45 +304,6 @@ a:hover { text-decoration: underline; }
       </div>
     </section>
 
-    <section id="sharing" class="section">
-      <div class="wrap">
-        <span class="eyebrow">Built</span>
-        <h2>Peer-to-peer sharing</h2>
-        <p>
-          A teacher shares a course from the course's own page &mdash; picking which
-          published version to share &mdash; and a student imports it from My Courses.
-          Under the hood, a course is mirrored into a Hyperdrive and replicated over
-          Hyperswarm; importing discovers the real course from a peer and keeps seeding
-          it for as long as Course boy is running. There's no central host required to
-          keep a course available &mdash; the network is powered by the people using it.
-        </p>
-        <p>
-          A course can also be gated to a set of vetted peers, so only people a teacher
-          has explicitly invited can import it. That path exists at the networking layer
-          today; the everyday UI for creating and redeeming invites is a fast follow.
-        </p>
-      </div>
-    </section>
-
-    <section id="versioning" class="section alt">
-      <div class="wrap">
-        <span class="eyebrow">Built</span>
-        <h2>Version control</h2>
-        <p>
-          A course is edited as a draft, and a teacher explicitly cuts a version when
-          it's ready to go out. Published versions stay around: a teacher can publish an
-          older version again, or revert a draft back to one, without losing the history
-          in between. Sharing always points at a specific version, not a moving draft.
-        </p>
-        <div class="grid grid-4">
-          <div class="card"><span class="step">1</span><h3>Draft</h3><p>Edit sections, lessons, and tests freely.</p></div>
-          <div class="card"><span class="step">2</span><h3>Cut a version</h3><p>Snapshot the draft as something shareable.</p></div>
-          <div class="card"><span class="step">3</span><h3>Publish</h3><p>Choose which version students see.</p></div>
-          <div class="card"><span class="step">4</span><h3>Revert</h3><p>Bring an older version back into the draft.</p></div>
-        </div>
-      </div>
-    </section>
-
     <section id="ownership" class="section">
       <div class="wrap">
         <span class="eyebrow roadmap">Roadmap</span>
@@ -365,20 +323,46 @@ a:hover { text-decoration: underline; }
       </div>
     </section>
 
+    <section id="sharing" class="section">
+      <div class="wrap">
+        <span class="eyebrow">Built</span>
+        <h2>Peer-to-peer sharing</h2>
+        <p>
+          Courses can be shared in a P2P fashion. Either through a hole-punch network, via pen-drive or handing out prited copies.
+          There is no need for cloud or central servers to support the network. Seedbox like services can be used to kick-start the seeding
+          of new courses but are not required nodes in the network.
+        </p>
+        <p>
+          A course can also be gated to a set of vetted peers, so only people a teacher
+          has explicitly invited can import it.
+        </p>
+      </div>
+    </section>
+
+    <section id="versioning" class="section alt">
+      <div class="wrap">
+        <span class="eyebrow">Built</span>
+        <h2>Version control</h2>
+        <p>
+          A course is edited as a draft, and a teacher explicitly cuts a version when
+          it's ready to go out. Sharing on the P2P network always points at a specific version, not a moving draft.
+        </p>
+        <div class="grid grid-4">
+          <div class="card"><span class="step">1</span><h3>Draft</h3><p>Edit sections, lessons, and tests freely.</p></div>
+          <div class="card"><span class="step">2</span><h3>Cut a version</h3><p>Snapshot the draft as something shareable.</p></div>
+          <div class="card"><span class="step">3</span><h3>Publish</h3><p>Choose which version students see.</p></div>
+          <div class="card"><span class="step">4</span><h3>Revert</h3><p>Bring an older version back into the draft.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section id="devices" class="section alt">
       <div class="wrap">
         <h2>Mobile &amp; desktop</h2>
         <p>
           <span class="eyebrow" style="display:inline">Built</span> &mdash; Course boy runs
           today as a desktop app (Electron), with the full authoring and peer-to-peer
-          experience available.
-        </p>
-        <p>
-          <span class="eyebrow roadmap" style="display:inline">Roadmap</span> &mdash; native
-          mobile is planned so a student can take a course, and a teacher can share one,
-          without a laptop. It isn't built yet, and because peer-to-peer sharing depends
-          on a native Bare runtime, it will need a real mobile app rather than a mobile
-          browser tab.
+          experience available. Mobile app is also available. Browser is not a good fit because the P2P layer uses UDP sockets which browsers don't expose.
         </p>
       </div>
     </section>
@@ -396,9 +380,7 @@ a:hover { text-decoration: underline; }
         <p>
           Peer-to-peer work runs in a separate native worker, and sharing is always an
           explicit choice. A keypair gives a teacher a persistent sharing identity, so it
-          should be protected &mdash; it can't simply be replaced without changing that
-          identity. Course boy is an evolving project; these design goals aren't a claim
-          that every part of the app or network has had an independent security audit.
+          should be protected.
         </p>
       </div>
     </section>
