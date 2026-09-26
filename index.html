@@ -251,13 +251,12 @@ a:hover { text-decoration: underline; }
         <h2>Open course standard</h2>
         <p>
           A course is organized into sections, and each section holds lessons and tests.
-          A lesson is a document a teacher or group of teachers writes for students to use; a test is a set
-          of exercises a student answers and gets graded on.
+          A lesson is a document (markdown) a teacher or group of teachers writes for students to read; a test is a set
+          of various exercise types a student answers and gets graded on.
         </p>
         <p>
           Nothing about the format is proprietary. Because the package is just files on
-          disk, a course survives the app that made it, and it's the same unit the
-          peer-to-peer and print paths both work from.
+          disk, a course survives the app that made it. Since it's not a binary file it can be easily consumed by other apps or services.
         </p>
       </div>
     </section>
@@ -268,7 +267,7 @@ a:hover { text-decoration: underline; }
         <h2>Creation experience</h2>
         <p>
           Lessons are written in a block-based editor &mdash; headings, formatted text,
-          images, video, and audio all live in the same document &mdash; and the same
+          images, video, audio and other content block types all live in the same document &mdash; and the same
           document is shown to students in a read-only view, so a lesson looks and
           behaves the same whether you're writing it or taking it.
         </p>
@@ -312,13 +311,7 @@ a:hover { text-decoration: underline; }
           A course's publishing key doesn't have to belong to one person. The plan is
           m-of-n multisig control over a course's identity, so an individual teacher can
           own a course outright, or a school can require several staff members to agree
-          before a new version goes out &mdash; without handing control to a platform
-          that could take the course down or lock an owner out of it.
-        </p>
-        <p class="note">
-          Not built yet. Today, a course's sharing identity is a single keypair derived
-          per-course from a teacher's device; multisig control is the direction this is
-          heading, not a shipped feature.
+          before a new version goes out.
         </p>
       </div>
     </section>
@@ -329,8 +322,8 @@ a:hover { text-decoration: underline; }
         <h2>Peer-to-peer sharing</h2>
         <p>
           Courses can be shared in a P2P fashion. Either through a hole-punch network, via pen-drive or handing out prited copies.
-          There is no need for cloud or central servers to support the network. Seedbox like services can be used to kick-start the seeding
-          of new courses but are not required nodes in the network.
+          There is no need for cloud or servers to support the network. Seedbox like services can be used to kick-start the seeding
+          of new courses but are not required nodes in the network. As long as you can hand out your course to students, every student that downloads your course becomes a seeder.
         </p>
         <p>
           A course can also be gated to a set of vetted peers, so only people a teacher
@@ -362,7 +355,7 @@ a:hover { text-decoration: underline; }
         <p>
           <span class="eyebrow" style="display:inline">Built</span> &mdash; Course boy runs
           today as a desktop app (Electron), with the full authoring and peer-to-peer
-          experience available. Mobile app is also available. Browser is not a good fit because the P2P layer uses UDP sockets which browsers don't expose.
+          experience available. Mobile app will also be available. Browser is not a good fit because the P2P layer uses UDP sockets which browsers don't expose.
         </p>
       </div>
     </section>
